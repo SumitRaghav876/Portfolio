@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sumit Raghav — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-logo"><span>~/</span>raghav-folio</div>
+    <button class="nav-resume-btn" onclick="downloadResume()" title="Download Resume">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+        <polyline points="14 2 14 8 20 8"/>
+        <line x1="12" y1="18" x2="12" y2="12"/>
+        <polyline points="9 15 12 18 15 15"/>
+      </svg>
+    <span>Resume</span>
+  </button>
+    <div class="nav-links">
+      <button class="nav-btn" onclick="scrollToSection('about')">About</button>
+      <button class="nav-btn" onclick="scrollToSection('skills')">Skills</button>
+      <button class="nav-btn" onclick="scrollToSection('projects')">Projects</button>
+      <button class="nav-btn" onclick="scrollToSection('achievements')">Certifications</button>
+      <button class="nav-btn" onclick="scrollToSection('contact')">Contact</button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav" id="mobileNav">
+    <button class="mobile-close" onclick="toggleMenu()"><span>✕</span></button>
+    <button class="nav-btn" onclick="navTo('about')">About</button>
+    <button class="nav-btn" onclick="navTo('skills')">Skills</button>
+    <button class="nav-btn" onclick="navTo('projects')">Projects</button>
+    <button class="nav-btn" onclick="navTo('achievements')">Certifications</button>
+    <button class="nav-btn" onclick="navTo('contact')">Contact</button>
+  </div>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-glow2"></div>
+    <div class="hero-inner">
+      <div class="hero-layout">
+
+        <!-- Top: text left, photo right -->
+        <div class="hero-top">
+          <div class="hero-content">
+            <div class="hero-tag fade-in">Available for freelance &amp; internships · Graduating Jun 2026</div>
+            <h1 class="hero-name fade-in">
+              <div>Sumit</div>
+              <div class="line2">Raghav</div>
+            </h1>
+            <div class="hero-role fade-in">
+              <span class="typing" id="typingText">Full Stack Developer</span>
+            </div>
+            <p class="hero-desc fade-in">
+              I build end-to-end web applications — from pixel-perfect Figma designs to production-ready MERN stack apps. Final year B.Tech CSE student at Galgotias University (CGPA: 8.53), based in Greater Noida, India.
+            </p>
+            <div class="hero-ctas fade-in">
+              <button onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" class="btn-primary">View My Work →</button>
+              <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'}); setTimeout(()=>document.getElementById('contact-name').focus(),600)" class="btn-outline">Let's Talk</button>
+            </div>
+          </div><!-- end hero-content -->
+
+          <!-- Photo -->
+          <div class="hero-photo-wrap">
+            <div class="hero-photo-glow"></div>
+            <div class="hero-photo-ring"></div>
+            <div class="hero-photo-inner">
+              <img src="hero.png" alt="Sumit Raghav">
+            </div>
+          </div>
+
+        </div><!-- end hero-top -->
+
+        <!-- Stats below full width -->
+        <div class="hero-stats fade-in">
+          <div class="stat-item">
+            <div class="stat-num">8.53</div>
+            <div class="stat-label">CGPA</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">140+</div>
+            <div class="stat-label">LeetCode Solved</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">5★</div>
+            <div class="stat-label">HackerRank Java</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">Jun '26</div>
+            <div class="stat-label">Graduating</div>
+          </div>
+        </div>
+
+      </div><!-- end hero-layout -->
+    </div><!-- end hero-inner -->
+        <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="section-label fade-in">About me</div>
+    <h2 class="section-title fade-in">Developer who <br>designs too.</h2>
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>
+          Hey, I'm Sumit — a <strong>full-stack developer</strong> and <strong>UI/UX designer</strong> in my final year of B.Tech CSE at Galgotias University (CGPA: 8.53, graduating June 2026). I have a rare combination: I design in Figma and build the whole product end-to-end.
+        </p>
+        <p>
+          My strongest project is <strong>Sharanga IQ</strong> — a real-time video interview platform built with MERN, Stream SDK, Clerk auth, and Inngest. It includes code practice features similar to LeetCode. I've also built pixel-perfect clones of Apple and Obys Agency, demonstrating both animation and component architecture.
+        </p>
+        <p>
+          Outside of web dev, I hold a <strong>5-star HackerRank in Java</strong>, solved 140+ LeetCode problems (max rating 1413), and completed internships in <strong>Cybersecurity</strong> and <strong>Generative AI</strong>. Currently open to freelance projects and full-time roles.
+        </p>
+      </div>
+      <div class="terminal-card fade-in">
+        <div class="terminal-header">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="terminal-title">sumit@portfolio — profile.json</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="t-prompt">$ </span><span class="t-cmd">cat profile.json</span></div>
+          <div class="t-out">{</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"name"</span>: <span class="t-str">"Sumit Raghav"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"email"</span>: <span class="t-str">"raghavsumitkr@gmail.com"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"location"</span>: <span class="t-str">"Greater Noida, India"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"education"</span>: <span class="t-str">"B.Tech CSE, Galgotias"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"cgpa"</span>: <span class="t-val">8.53</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"stack"</span>: [<span class="t-str">"MongoDB"</span>, <span class="t-str">"Express"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-str">"React"</span>, <span class="t-str">"Node.js"</span>],</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"leetcode"</span>: <span class="t-str">"140+ solved, rating 1413"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"hackerrank"</span>: <span class="t-str">"5★ Java"</span>,</div>
+          <div class="t-out">&nbsp;&nbsp;<span class="t-key">"available"</span>: <span class="t-val">true</span></div>
+          <div class="t-out">}</div>
+          <div style="margin-top:0.5rem"><span class="t-prompt">$ </span><span class="typing" style="font-size:0.8rem"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <div class="skills-inner">
+      <div class="section-label fade-in">Skills</div>
+      <h2 class="section-title fade-in">What I build with.</h2>
+        <div class="skills-grid">
+          <div class="skill-card fade-in">
+            <div class="skill-cat">Frontend</div>
+            <div class="skill-name">UI Engineering</div>
+            <div class="skill-tags">
+              <span class="tag">React.js</span>
+              <span class="tag">Next.js</span>
+              <span class="tag">Tailwind CSS</span>
+              <span class="tag">Vite</span>
+              <span class="tag">Three.js</span>
+              <span class="tag">GSAP</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-cat">Backend</div>
+            <div class="skill-name">Server & APIs</div>
+            <div class="skill-tags">
+              <span class="tag blue">Node.js</span>
+              <span class="tag blue">Express.js</span>
+              <span class="tag blue">REST APIs</span>
+              <span class="tag blue">MongoDB</span>
+              <span class="tag blue">MySQL</span>
+              <span class="tag blue">Mongoose</span>
+              <span class="tag blue">Inngest</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-cat">Languages & Design</div>
+            <div class="skill-name">Core Languages</div>
+            <div class="skill-tags">
+              <span class="tag purple">Java</span>
+              <span class="tag purple">JavaScript</span>
+              <span class="tag purple">Figma</span>
+              <span class="tag purple">Prototyping</span>
+              <span class="tag purple">Design Systems</span>
+            </div>
+          </div>
+          <div class="skill-card fade-in">
+            <div class="skill-cat">Tools, APIs & Certifications</div>
+            <div class="skill-name">Ecosystem</div>
+            <div class="skill-tags">
+              <span class="tag">Git & GitHub</span>
+              <span class="tag">Vercel</span>
+              <span class="tag blue">Stream SDK</span>
+              <span class="tag purple">Clerk Auth</span>
+              <span class="tag">Postman Expert</span>
+              <span class="tag blue">Cybersecurity</span>
+              <span class="tag purple">Generative AI</span>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <div class="section-label fade-in">Projects</div>
+    <h2 class="section-title fade-in">Things I've built.</h2>
+    <div class="projects-grid">
+
+      <!-- Featured: Sharanga IQ -->
+      <div class="project-card featured fade-in">
+        <div>
+          <div class="project-num">01 — Featured</div>
+          <div class="project-badge">★ Star Project</div>
+          <h3 class="project-title">Sharanga IQ</h3>
+          <p class="project-desc">
+            A full-stack real-time video interview platform with HD video calling, in-app chat, notifications, and a built-in code practice environment (similar to LeetCode). Supports interviewer & candidate roles with session management.
+          </p>
+          <div class="project-tech">
+            <span class="tag">MERN Stack</span>
+            <span class="tag blue">Stream Video SDK</span>
+            <span class="tag purple">Clerk Auth</span>
+            <span class="tag blue">Inngest</span>
+            <span class="tag">React</span>
+            <span class="tag blue">Real-time</span>
+          </div>
+          <div class="project-links">
+            <button class="link-btn" onclick="window.open('https://sharanga-iq.onrender.com','_self')">↗ Live Demo</button>
+            <button class="link-btn dim" onclick="window.open('https://github.com/SumitRaghav876','_blank')">⌥ GitHub</button>
+          </div>
+        </div>
+        <div class="project-visual">
+          <div class="vis-bar">
+            <div class="vis-dot" style="background:#ff5f57"></div>
+            <div class="vis-dot" style="background:#ffbd2e"></div>
+            <div class="vis-dot" style="background:#28c840"></div>
+            <div class="vis-url">sharanga-iq.vercel.app/interview/room-xyz</div>
+          </div>
+          <div class="vis-body">
+            <div class="vis-sidebar">
+              <div class="vis-item"><div class="vis-avatar"></div><div class="vis-line-sm"></div></div>
+              <div class="vis-item"><div class="vis-avatar" style="background:var(--accent2)"></div><div class="vis-line-sm"></div></div>
+              <div class="vis-item"><div class="vis-avatar" style="background:#a78bfa;opacity:0.6"></div><div class="vis-line-sm"></div></div>
+            </div>
+            <div class="vis-main">
+              <div class="vis-video">● LIVE — Interview Room Active</div>
+              <div class="vis-controls">
+                <div class="vis-ctrl active"></div>
+                <div class="vis-ctrl active"></div>
+                <div class="vis-ctrl"></div>
+                <div class="vis-ctrl"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Apple Clone -->
+      <div class="project-card fade-in">
+        <div class="project-num">02</div>
+        <h3 class="project-title">Product-landing-page-with-animations</h3>
+        <p class="project-desc">
+          Pixel-perfect Apple product page with 3D iPhone model rendered via Three.js & React Three Fiber, GSAP scroll animations, and a fully responsive layout. Demonstrates 3D web, animation, and React architecture.
+        </p>
+        <div class="project-tech">
+          <span class="tag">React</span>
+          <span class="tag purple">Three.js</span>
+          <span class="tag purple">React Three Fiber</span>
+          <span class="tag blue">GSAP</span>
+          <span class="tag">Tailwind CSS</span>
+          <span class="tag">Vite</span>
+        </div>
+        <div class="project-links" style="margin-top:auto;padding-top:1.5rem">
+          <button class="link-btn" onclick="window.open('https://apple-sepia-seven.vercel.app/','_self')">↗ Live Demo</button>
+          <button class="link-btn dim" onclick="window.open('https://github.com/SumitRaghav876/Apple','_blank')">⌥ GitHub</button>
+        </div>
+      </div>
+
+      <!-- Obys Clone -->
+      <div class="project-card fade-in">
+        <div class="project-num">03</div>
+        <h3 class="project-title">Creative-agency-UI-with-scroll-animations</h3>
+        <p class="project-desc">
+          Creative agency UI featuring GSAP-powered scroll animations, custom cursor interactions, and smooth page transitions. Showcases advanced CSS and JavaScript animation skills.
+        </p>
+        <div class="project-tech">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag blue">JavaScript</span>
+          <span class="tag purple">GSAP</span>
+        </div>
+        <div class="project-links" style="margin-top:auto;padding-top:1.5rem">
+          <button class="link-btn" onclick="window.open('https://sumitraghav876.github.io/Creative-agency-UI-with-scroll-animations/','_self')">↗ Live Demo</button>
+          <button class="link-btn dim" onclick="window.open('https://github.com/SumitRaghav876/Obys-Clone','_blank')">⌥ GitHub</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications & Achievements -->
+  <section id="achievements" style="padding:8rem 3rem; background: var(--bg2); border-top:1px solid var(--border);">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="section-label fade-in">Certifications</div>
+      <h2 class="section-title fade-in">Certifications &<br>Achievements.</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; margin-top:3rem;">
+        <div class="skill-card fade-in" style="border-left:2px solid var(--accent);">
+          <div class="skill-cat">Oct – Dec 2025 · AICTE-Eduskills</div>
+          <div class="skill-name" style="font-size:1rem;">Palo Alto Cybersecurity Internship</div>
+          <p style="font-size:0.82rem; color:var(--muted); line-height:1.7; margin-top:0.5rem;">Firewall configuration, security policy management, network access control, anti-virus & URL filtering profiles.</p>
+        </div>
+        <div class="skill-card fade-in" style="border-left:2px solid var(--accent2);">
+          <div class="skill-cat">Postman · API Platform</div>
+          <div class="skill-name" style="font-size:1rem;">API Fundamentals Student Expert</div>
+          <p style="font-size:0.82rem; color:var(--muted); line-height:1.7; margin-top:0.5rem;">Proficient in designing, testing & debugging APIs. Experienced with API lifecycle management and collaboration.</p>
+        </div>
+        <div class="skill-card fade-in" style="border-left:2px solid #a78bfa;">
+          <div class="skill-cat">Jul – Sep 2024 · AICTE-Eduskills</div>
+          <div class="skill-name" style="font-size:1rem;">Generative AI Virtual Internship</div>
+          <p style="font-size:0.82rem; color:var(--muted); line-height:1.7; margin-top:0.5rem;">Text generation, language translation, image generation & classification, and advanced generative AI methods.</p>
+        </div>
+        <div class="skill-card fade-in" style="border-left:2px solid #f9a825;">
+          <div class="skill-cat">Competitive Programming</div>
+          <div class="skill-name" style="font-size:1rem;">HackerRank & LeetCode</div>
+          <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.75rem;">
+            <span class="tag" style="background:rgba(249,168,37,0.08);border-color:rgba(249,168,37,0.3);color:#f9a825;">5★ Java</span>
+            <span class="tag" style="background:rgba(249,168,37,0.08);border-color:rgba(249,168,37,0.3);color:#f9a825;">3★ Problem Solving</span>
+            <span class="tag blue">140+ LeetCode</span>
+            <span class="tag blue">Max Rating: 1413</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="contact-inner">
+      <div class="section-label fade-in">Contact</div>
+      <h2 class="contact-big fade-in">Let's build<br><span>something great.</span></h2>
+      <p class="contact-sub fade-in">
+        Open to freelance projects, full-time roles, and internships. Drop a message and I'll reply within 24 hours.
+      </p>
+      <form class="contact-form fade-in" id="contactForm" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input id="contact-name" name="from_name" class="form-input" type="text" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input name="reply_to" class="form-input" type="email" placeholder="your@email.com" required/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input name="subject" class="form-input" type="text" placeholder="Project inquiry / Job opportunity / ..." />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea name="message" class="form-textarea" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button type="submit" id="submitBtn" class="btn-primary" style="align-self:flex-start;border:none;cursor:none;">
+          Send Message →
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-top">
+      <div class="footer-copy">© 2026 <span>Sumit Raghav</span>. Designed &amp; Built by me.</div>
+      <div class="footer-stack">MERN · Three.js · Figma · ☕</div>
+    </div>
+    <div class="footer-links">
+      <button class="social-link" onclick="window.open('https://github.com/SumitRaghav876','_blank')">⌥ GitHub</button>
+      <button class="social-link" onclick="window.open('https://www.linkedin.com/in/sumit-raghav-1a7072248','_blank')">in LinkedIn</button>
+      <button class="social-link" onclick="window.location.href='mailto:raghavsumitkr@gmail.com'">@ raghavsumitkr@gmail.com</button>
+      <button class="social-link" onclick="window.location.href='tel:+918958289978'">☎ +91-8958289978</button>
+    </div>
+  </footer>
+
+  <!-- using EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script src="script.js"></script>
+
+  
+</body>
+</html>
